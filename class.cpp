@@ -25,3 +25,35 @@ public:
 
   public T removeAt(int idx) = 0;
 };
+
+template <class T>
+class LinkedList : public ILinkedList<T> {
+public:
+  LinkedList() {
+    head = nullptr;
+    tail = nullptr;
+    size = 0;
+  }
+
+  ~LinkedList() {
+    clear();
+  }
+
+  void add(T data) {
+    Node<T>* newNode = new Node<T>();
+    newNode->data = data;
+    newNode->next = nullptr;
+
+    if (head == nullptr) {
+      head = newNode;
+      tail = newNode;
+    } else {
+      tail->next = newNode;
+      tail = newNode;
+    }
+
+    size++;
+  }
+
+  
+};
