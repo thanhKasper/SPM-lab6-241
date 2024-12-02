@@ -55,5 +55,26 @@ public:
     size++;
   }
 
+  void remove(T data) {
+    Node<T>* current = head;
+    Node<T>* prev = nullptr;
+
+    while (current != nullptr) {
+      if (current->data == data) {
+        if (prev == nullptr) {
+          head = current->next;
+        } else {
+          prev->next = current->next;
+        }
+
+        delete current;
+        size--;
+        return;
+      }
+
+      prev = current;
+      current = current->next;
+    }
+  }
   
 };
