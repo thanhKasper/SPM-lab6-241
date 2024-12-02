@@ -22,4 +22,6 @@ public:
   public void clear() = 0;
   public void size() = 0;
   public void get(int idx) = 0;
-}
+
+  public T removeAt(int idx) = 0;
+};
